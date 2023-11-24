@@ -47,7 +47,21 @@ public class ObjectArrayEx01 {
 	String temp3 = productList[0].name; // 데이터
 	int temp4 = productList[0].price; // 데이터
 	
-		
+	Product temp = productList[2];
+	System.out.println("temp : " + temp);//주소
+	System.out.println("productList[2] : " + productList[2]);//주소
+	
+	
+	System.out.println("temp.name : " + temp.name);//장패드
+	System.out.println("productList[2].name : " + productList[2].name);//장패드
+	
+	temp.name = "장패드1";
+	System.out.println("temp.name : " + temp.name);//장패드1
+	System.out.println("productList[2].name : " + productList[2].name);//장패드
+	
+	productList[2].name = "장패드2";
+	System.out.println("temp.name : " + temp.name);//장패드2
+	System.out.println("productList[2].name : " + productList[2].name);//장패드2
 
 	}
 
