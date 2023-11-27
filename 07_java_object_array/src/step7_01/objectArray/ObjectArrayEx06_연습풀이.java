@@ -13,7 +13,7 @@ class MemberManager01{
 
 }
 
-public class ObjectArrayEx06_연습분석 {
+public class ObjectArrayEx06_연습풀이 {
 	
 	public static void main(String[] args) {
 		//각 클래스 객체 생성
