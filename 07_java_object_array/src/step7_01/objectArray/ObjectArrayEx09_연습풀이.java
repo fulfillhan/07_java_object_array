@@ -106,6 +106,10 @@ class Controller01{
 	
 	// StudentEx의 객체 배열인 list의 데이터를 문자열로 반환하기
 	String outData01() {
+		
+		String a = null;
+		String b = "";
+		
 		String data = "";  //메서드가 반환활 문자열 초기화
 		//학생수 체크
 		if (studCnt == 0) { // 학생수 데이터가 없다면 빈 문자열로 반환
