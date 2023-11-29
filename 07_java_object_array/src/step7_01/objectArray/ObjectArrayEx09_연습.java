@@ -23,7 +23,7 @@ class StudentEx{
 
 class Controller {
 	
-	StudentEx[] list = null;
+	StudentEx[] list= null;
 	int stdCnt = 0;
 	
 	void addStudentEx(StudentEx st) {
