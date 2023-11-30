@@ -208,16 +208,16 @@ public class ObjectArrayEx09_연습풀이 {
 				if (controller.studCnt == 0) {
 					continue;
 				}
-				FileWriter fw = null;  // 파일 쓰기 위한 FileWriter 선언
+				FileWriter fw = null;                    // 파일 쓰기 위한 FileWriter 선언
 				
 				try {
-					fw = new FileWriter(fileName);    //FileWriter 객체 초기화
+					fw = new FileWriter(fileName);       //FileWriter 객체 초기화
 				String data = controller.outData01();    // 메서드 호출하여 데이터 가져오기
-				if (!data.equals("")) {// 가져온 data에서 ""비어있지 않다면(조건)
-					fw.write(data);  //파일에 데이터를 쓴다
-					System.out.println(data);// 해당 데이터를 출력한다
+				if (!data.equals("")) {                  // 가져온 data에서 ""비어있지 않다면(조건)
+					fw.write(data);                      //파일에 데이터를 쓴다
+					System.out.println(data);            // 해당 데이터를 출력한다
 				}
-				} catch (IOException e) {   // 예외 발생하면 예외 정보를 출력
+				} catch (IOException e) {                // 예외 발생하면 예외 정보를 출력
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} 
@@ -246,7 +246,8 @@ public class ObjectArrayEx09_연습풀이 {
 						 fr = new FileReader(file);
 						 br = new BufferedReader(fr);
 						  
-						 String line = br.readLine(); // 한 줄의 내용을 읽어오는 메서드 호출
+						// String line = br.readLine(); // 한 줄의 내용을 읽어오는 메서드 호출
+						 
 						 
 					} catch (FileNotFoundException e) {
 						// TODO Auto-generated catch block
