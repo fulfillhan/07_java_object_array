@@ -1,5 +1,9 @@
 package step7_01.objectArray;
  
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
@@ -232,7 +236,23 @@ public class ObjectArrayEx09_연습풀이 {
 			//11-30 오전 연습 3.
 			// 출력하기 
 			else if (sel == 6) {
+				File file = new File(fileName);   // 파일을 다루기 위한 File 객체 생성
+				FileReader fr = null;
+				BufferedReader br = null;
 				
+				if (file.exists()) {
+					try {
+						
+						 fr = new FileReader(file);
+						 br = new BufferedReader(fr);
+						  
+						 String line = br.readLine(); // 한 줄의 내용을 읽어오는 메서드 호출
+						 
+					} catch (FileNotFoundException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}  // 파일에서 텍스트 데이터를 읽을때 사용되는 클래스
+				}
 			}else {        
 				System.out.println("==종료 ==");
 				break;
