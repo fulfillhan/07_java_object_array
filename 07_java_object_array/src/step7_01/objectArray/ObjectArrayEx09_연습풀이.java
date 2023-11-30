@@ -110,14 +110,21 @@ class Controller01{
 		String a = null;
 		String b = "";
 		
-		String data = "";  //메서드가 반환활 문자열 초기화
+		String data = "";                    //메서드가 반환활 문자열 초기화
 		//학생수 체크
-		if (studCnt == 0) { // 학생수 데이터가 없다면 빈 문자열로 반환
+		if (studCnt == 0) {                  // 학생수 데이터가 없다면 빈 문자열로 반환
 			return data;
 		}
-		data = data + studCnt + "\n";
+		data = data + studCnt + "\n"; 
 		
-		
+		for (int i = 0; i < studCnt; i++) {  //StudentEx01의list 배열 각 요소의 id와 pw를 가져와 문자열로 합친다.
+			  data += list[i].id;
+			  data += ",";
+			  data += list[i].pw;
+			  if (studCnt -1 != i) {         // studCnt -1  가 마지막요소가 아니라면
+				  data += "\n";              // 줄바꿈을 추가한다.( 마지막 요소이면 줄바꿈이 되지 않음)
+			}
+		}
 		return data;
 		
 	}
@@ -164,7 +171,9 @@ public class ObjectArrayEx09_연습풀이 {
 			//탈퇴하기
 			else if (sel == 2) {
 				StudentEx01 temp = new StudentEx01();  //구조 선언
-				controller.printSudentEx01();
+				controller.printSudentEx01()
+				
+				;
 				System.out.println("[탈퇴] id 를 입력하세요 >>> ");
 				temp.id = scan.next();
 				int check = controller.checkId(temp);
@@ -192,17 +201,39 @@ public class ObjectArrayEx09_연습풀이 {
 			}
 			//저장하기
 			else if (sel == 5) {
+				if (controller.studCnt == 0) {
+					continue;
+				}
+				FileWriter fw = null;  // 파일 쓰기 위한 FileWriter 선언
+				
 				try {
-					FileWriter fw = new FileWriter(fileName);
-					
-				} catch (IOException e) {
+					fw = new FileWriter(fileName);    //FileWriter 객체 초기화
+				String data = controller.outData01();    // 메서드 호출하여 데이터 가져오기
+				if (!data.equals("")) {// 가져온 data에서 ""비어있지 않다면(조건)
+					fw.write(data);  //파일에 데이터를 쓴다
+					System.out.println(data);// 해당 데이터를 출력한다
+				}
+				} catch (IOException e) {   // 예외 발생하면 예외 정보를 출력
 					// TODO Auto-generated catch block
 					e.printStackTrace();
+				} 
+				finally {
+					try {
+						if (fw != null) {
+							fw.close();
+						}
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 				
-			}else if (sel == 6) {
+			}
+			//11-30 오전 연습 3.
+			// 출력하기 
+			else if (sel == 6) {
 				
-			}else {
+			}else {        
 				System.out.println("==종료 ==");
 				break;
 			}

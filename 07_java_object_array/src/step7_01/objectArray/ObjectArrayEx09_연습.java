@@ -54,20 +54,21 @@ class Controller {
 		else if (stdCnt > 1) {
 			StudentEx [] temp = list;
 			list = new StudentEx[stdCnt -1];
-			for (int i = 0; i < index; i++) {
-				list[i] = temp[i];
-			}
-			for (int i = index; i < stdCnt -1; i++) {
-				list[i] = temp[i + 1];
-			}
-			temp = null;
-		}
-		stdCnt--;
+			
+			  for (int i = 0; i < index; i++) { 
+				  list[i] = temp[i]; 
+				  } 
+			  for (int i = index; i < stdCnt -1; i++) {
+				  list[i] = temp[i + 1]; 
+				  }
+			  temp = null;
+			 }
+		 stdCnt--;
 		
 		return deleteObj;  // 굳이 return을 안해주고 데이터만 삭제해주어도 되는데
 						// 타 언어의 pop()메서드와 같이 삭제하는 데이터를 return하는 방식처럼 구현해본 예시
 		
-	}
+      }
 	
 	
 	int checkId(StudentEx st) {

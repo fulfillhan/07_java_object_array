@@ -47,7 +47,8 @@ class MyArrayList {
 			int j = 0;
 			for (int i = 0; i < elementCnt + 1; i++) {
 				if (i != index) {
-					arr[i] = temp[j++];
+					arr[i] = temp[j];
+					j++;
 				}
 			}
 			temp = null;
