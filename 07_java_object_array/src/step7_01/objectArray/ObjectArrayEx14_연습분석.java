@@ -110,12 +110,20 @@ class MyArrayList01{
 public class ObjectArrayEx14_연습분석 {
 	
 	public static void main(String[] args) {
-		
+
 		// ArrayList 사용
 		ArrayList<Integer> list =  new ArrayList<Integer>();
-		
-		
-		
+
+		// 추가하기
+		lsit.add(10);
+		list.add(20);
+		lsit.add(30);
+		list.add(40);
+		list.add(50);
+		System.out.println(list);
+
+
+
 	}
 
 }
