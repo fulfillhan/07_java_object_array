@@ -1,5 +1,6 @@
 package step7_01.objectArray;
 
+import java.io.ObjectInputStream.GetField;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -73,7 +74,7 @@ class MyArrayList01{
 			int j = 0;
 		    for (int i = 0; i < elementCnt; i++) {
 				if (i != index) {
-					arr[j] = arr[i];
+					arr[j] = temp[i];
 					j++;
 				}
 			}
@@ -92,8 +93,8 @@ class MyArrayList01{
 		return arr[index];
 	}
 	//6.set 메서드
-	void set() {
-		
+	void set(int index, int value) {
+		arr[index] = value;
 	}
 	//7.print 메서드
 	void print () {
@@ -115,14 +116,92 @@ public class ObjectArrayEx14_연습분석 {
 		ArrayList<Integer> list =  new ArrayList<Integer>();
 
 		// 추가하기
-		lsit.add(10);
+		list.add(10);
 		list.add(20);
-		lsit.add(30);
+		list.add(30);
 		list.add(40);
 		list.add(50);
 		System.out.println(list);
-
-
+		
+		//삽입하기
+		list.add(0, 9);
+		
+		//출력하기
+		System.out.println(list);
+		
+		//인덱스로 삭제하기
+		list.remove(3);
+		System.out.println(list);
+		
+		//길이 구하기
+		int elementCnt =list.size();
+		System.out.println("elementCnt = "+ elementCnt);
+		
+		//인덱스로 값 꺼내오기
+		System.out.print("[");
+		for (int i = 0; i < elementCnt; i++) {
+			System.out.print(list.get(i));
+			if (elementCnt - 1 != i) {   // 끝 위치가 아니라면
+				System.out.print(" , ");
+				
+			}
+		}
+		System.out.println("]");
+		
+		//특정 위치의 값 수정하기
+		list.set(3, 5);
+		System.out.println(list);
+		
+		//모든 데이터 삭제하기
+		list.clear();
+		System.out.println(list); // "[]" 형태만 있고 데이터 삭제
+		System.out.println(list.size()); // 0
+		
+		
+		System.out.println("\n==============================\n");
+		
+		//직접 구현한 ArrayList
+		MyArrayList01 myList = new MyArrayList01();
+		
+		//추가하기
+		myList.add(10);
+		myList.add(20);
+		myList.add(30);
+		myList.add(40);
+		myList.add(50);
+		myList.print();
+		
+		//삽입하기
+		myList.add(0, 9);
+		
+		//출력하기
+		myList.print();
+		
+		//인덱스 삭제하기
+		myList.remove(3);
+		myList.print();
+		
+		//길이 구하기
+		int elementCnt01 = myList.size();
+		System.out.println("elementCnt = "+ elementCnt01);
+		
+		//인덱스 값 꺼내오기
+		System.out.print("[");
+		for (int i = 0; i < elementCnt01; i++) {
+			System.out.print(myList.get(i));
+			if (elementCnt01 - 1 != i) {
+				System.out.print(" , ");
+			}
+		}
+		System.out.println("]");
+		
+		//특정 위치의 값 수정하기
+		myList.set(3, 5);
+		myList.print();
+		
+		//모든 데이터를 삭제하기
+        myList.clear();
+        System.out.println(myList.size());
 
 	}
 
