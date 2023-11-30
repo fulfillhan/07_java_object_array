@@ -1,5 +1,6 @@
 package step7_01.objectArray;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import javax.lang.model.element.Element;
@@ -109,7 +110,11 @@ class MyArrayList01{
 public class ObjectArrayEx14_연습분석 {
 	
 	public static void main(String[] args) {
-		//11-30 2.오전 재연습 필요 -> 1.어레이리스트 강의 먼저 듣기
+		
+		// ArrayList 사용
+		ArrayList<Integer> list =  new ArrayList<Integer>();
+		
+		
 		
 	}
 
