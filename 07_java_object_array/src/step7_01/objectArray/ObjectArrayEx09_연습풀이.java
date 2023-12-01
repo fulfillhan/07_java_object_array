@@ -243,13 +243,14 @@ public class ObjectArrayEx09_연습풀이 {
 				
 				
 					try {
+						 // 파일을 다루기 위한 File 객체 생성
+						File file = new File(fileName);   
 						
-						File file = new File(fileName);   // 파일을 다루기 위한 File 객체 생성
-						
-					     if (file.exists()) {  // 파일이 존재하는지 확인
+						// 파일이 존재하는지 확인
+					     if (file.exists()) {  
 					    	 
 						 fr = new FileReader(file);   //FileReader 사용하여 파일 읽어내기
-						 br = new BufferedReader(fr); // BufferdReader 사용하여 효율적으로 파일 일어낼수있다.
+						 br = new BufferedReader(fr); // BufferdReader 사용하여 효율적으로 파일 읽어낼수있다.
 						  
 						String line = br.readLine(); // 한 줄의 내용을 읽어와서
 						int count =Integer.parseInt(line);// int로 전환하여 count 변수에 저장

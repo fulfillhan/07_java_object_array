@@ -47,7 +47,7 @@ class StudentController01{
 		return deleteObj;                            // 삭제하려 했던 데이터 반환
 		
 	}
-	
+	// 데이터 정열 메서드
 	void sortData() {
 		
 		int size = studentList.size();          // 배열의 크기 선언및 초기화
@@ -153,7 +153,7 @@ public class ObjectArrayEx15_연습분석 {
 			
 		}//저장하기
 		  else if (sel == 5) {
-			  if (controller.getsize() == 0)  break;  // getszie() 크기값 반환되는 베서드 호출
+			  if (controller.getsize() == 0)  break;  // getszie() 크기값 반환되는 메서드 호출
 			  FileWriter fW = null;
 			 try {
 				 fW = new FileWriter(fileName);
