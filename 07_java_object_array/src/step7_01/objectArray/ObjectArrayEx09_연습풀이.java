@@ -8,6 +8,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
+import javax.xml.crypto.Data;
+
 class StudentEx01 {
 	String id;
 	String pw;
@@ -111,9 +113,6 @@ class Controller01{
 	// StudentEx의 객체 배열인 list의 데이터를 문자열로 반환하기
 	String outData01() {
 		
-		String a = null;
-		String b = "";
-		
 		String data = "";                    //메서드가 반환활 문자열 초기화
 		//학생수 체크
 		if (studCnt == 0) {                  // 학생수 데이터가 없다면 빈 문자열로 반환
@@ -131,6 +130,10 @@ class Controller01{
 		}
 		return data;
 		
+	}
+	void loadStudentEx(StudentEx01[] temp, int count) {
+		this.list = temp;
+		this.studCnt = count;
 	}
 	
 }
@@ -187,19 +190,19 @@ public class ObjectArrayEx09_연습풀이 {
 				}
 				else {
 					StudentEx01 del_st = controller.remoneStudentEx(check);
-					System.out.println("님 탈퇴되었습니다.");
+					System.out.println(temp.id+ "님 탈퇴되었습니다.");
 				}
 			
 			}
 			//정렬하기
 			else if (sel == 3) {
-				
+				controller.sortData();
 				controller.printSudentEx01();
 				
 			}
 			//출력하기
 			else if (sel == 4) {
-				controller.sortData();
+				
 				controller.printSudentEx01();
 				
 			}
@@ -217,15 +220,13 @@ public class ObjectArrayEx09_연습풀이 {
 					fw.write(data);                      //파일에 데이터를 쓴다
 					System.out.println(data);            // 해당 데이터를 출력한다
 				}
-				} catch (IOException e) {                // 예외 발생하면 예외 정보를 출력
+				} catch (Exception e) {                // 예외 발생하면 예외 정보를 출력
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} 
 				finally {
 					try {
-						if (fw != null) {
-							fw.close();
-						}
+						fw.close();
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -233,28 +234,61 @@ public class ObjectArrayEx09_연습풀이 {
 				}
 				
 			}
-			//11-30 오전 연습 3.
-			// 출력하기 
+		
+			// txt읽어내고 출력하기  ** 이게 어려움**
 			else if (sel == 6) {
-				File file = new File(fileName);   // 파일을 다루기 위한 File 객체 생성
+		
 				FileReader fr = null;
 				BufferedReader br = null;
 				
-				if (file.exists()) {
+				
 					try {
 						
-						 fr = new FileReader(file);
-						 br = new BufferedReader(fr);
+						File file = new File(fileName);   // 파일을 다루기 위한 File 객체 생성
+						
+					     if (file.exists()) {  // 파일이 존재하는지 확인
+					    	 
+						 fr = new FileReader(file);   //FileReader 사용하여 파일 읽어내기
+						 br = new BufferedReader(fr); // BufferdReader 사용하여 효율적으로 파일 일어낼수있다.
 						  
-						// String line = br.readLine(); // 한 줄의 내용을 읽어오는 메서드 호출
+						String line = br.readLine(); // 한 줄의 내용을 읽어와서
+						int count =Integer.parseInt(line);// int로 전환하여 count 변수에 저장
+						StudentEx01[] temp = new StudentEx01[count]; // 읽어드린 학생 정보를 저장할 객체 배열 생성(크기는 count)
+						
+						//count 만큼 반복하면서 학생 수를 배열에 저장한다.
+						for (int i = 0; i < count; i++) {
+							temp[i]= new StudentEx01();
+							line = br.readLine();
+							// 쉼표로 구분된 값을 분할하여 저장
+							String[] value = line.split(",");
+							temp[i].id = value[0];
+							temp[i].pw = value[1];
+						
+						}
+						// controller 의 loadStudent 메서드 호출하여 학생 정보 출력
+						controller.loadStudentEx(temp, count); 
 						 
-						 
-					} catch (FileNotFoundException e) {
-						// TODO Auto-generated catch block
+						}
+					     controller.printSudentEx01();
+					}
+					catch (Exception e) {
 						e.printStackTrace();
-					}  // 파일에서 텍스트 데이터를 읽을때 사용되는 클래스
-				}
-			}else {        
+					}  finally {
+						try {
+							// buggeredReader 닫기
+							br.close();
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+						try {
+							//FileReader 닫기
+							fr.close();
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}
+				
+			}else if(sel== 7 ){
 				System.out.println("==종료 ==");
 				break;
 			}

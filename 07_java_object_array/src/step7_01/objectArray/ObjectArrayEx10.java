@@ -102,6 +102,7 @@ public class ObjectArrayEx10 {
 		 list.remove(2);
 		 list.remove(1);
 		 list.remove(0);
+		
 		 
 		 System.out.println(Arrays.toString(arr));
 		 System.out.println(list);

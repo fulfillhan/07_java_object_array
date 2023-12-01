@@ -27,8 +27,8 @@ class StudentController{
 	
 	
 	StudentDTO removeStudent(int index) {
-		StudentDTO deletedObj = studentList.get(index);
 		studentList.remove(index);
+		StudentDTO deletedObj = studentList.get(index);
 		return deletedObj;
 	}
 	
@@ -56,8 +56,8 @@ class StudentController{
 	
 	String outData() {
 		
-		String data = "";
-		int lineCnt = studentList.size();
+		String data = "";  
+		int lineCnt = studentList.size();   //-> 지역변수 사용하여 크기를 저장
 		if (lineCnt == 0){
 			return data;
 		}
