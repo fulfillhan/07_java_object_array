@@ -1,5 +1,5 @@
 package step7_01.objectArray;
-
+//2023-12-02 인강 들으면서 개념 정리 같이하기!!
 class Product{
 	
 	String name;
