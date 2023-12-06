@@ -21,7 +21,7 @@ class MyArrayList01{
 		}
 		else if (elementCnt > 0) {           //요소의 갯수가 1개 이상이면
 			int[] temp = arr;                // 기존배열을 임시 배열 temp 저장
-			arr =  new int [elementCnt + 1]; // 배열의 크기가 +1로 생성된 새로운 배열 arr 저장
+			arr =  new int [elementCnt + 1]; // 배열의 크기가 +1로 생성된 새로운 배열 arr 생성.
 			
 			for (int i = 0; i < elementCnt; i++) {
 				arr[i] = temp[i];            // 기존 배열을 새로운 배열로 업데이트
