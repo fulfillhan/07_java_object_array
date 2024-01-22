@@ -37,9 +37,9 @@ import java.util.Arrays;
  *
  *
  *  [ 제네릭 ]
- *  
- * - 제네릭(generic)이라 부르며 ArrayList에 저장될 데이터 타입을 반드시 클래스로 작성한다.
- * - 기본 자료형 데이터를 저장하는 ArrayList를 만들어야 하는 경우에는 래퍼 클래스를 사용한다.
+ *  제네릭(generic)이라 부르며 ArrayList에 저장될 데이터 타입을 반드시 클래스로 작성한다.
+ * - 기본 자료형 데이터를 저장하는 ArrayList를 만들어야 하는 경
+ * - 우에는 래퍼 클래스를 사용한다.
  *   
  *   
  */
@@ -126,7 +126,7 @@ public class ObjectArrayEx10 {
 		//list.add(10);
 		
 		list = null;//ArrayList 자체를 삭제
-		list = new ArrayList<Integer>();
+		list = new ArrayList<Integer>();//다시 길을 생성
 		//list.add(10);
 	}
 
