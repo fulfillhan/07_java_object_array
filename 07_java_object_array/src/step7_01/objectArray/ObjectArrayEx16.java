@@ -58,7 +58,7 @@ public class ObjectArrayEx16 {
 		hMap.put("data2", 20000);
 		hMap.put("data3", 30000);
 		
-		//데이터 주가 put();
+		//데이터 추가 put();
 		hMap.put("data4", 4000);
 		hMap.put("data5", 5000);
 		
